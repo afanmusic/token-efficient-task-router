@@ -1,4 +1,5 @@
 # token-efficient-task-router
+# 节流token.skill
 
 ## 当前版本
 
@@ -9,7 +10,7 @@
 
 ## Skill 简介
 
-`token-efficient-task-router` 是一个面向 WorkBuddy、iMA Copilot、OpenClaw、QClaw、CodeBuddy 及其他 Agent Skill 系统的标准化控制型 Skill。
+`token-efficient-task-router` 是一个面向 WorkBuddy、iMA Copilot、OpenClaw、QClaw、CodeBuddy 及其他 Agent Skill 系统的标准化控制型 Skill。中文名暂定：节流token.skill
 
 它不是业务技能，而是一个：
 
