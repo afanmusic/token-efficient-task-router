@@ -3,9 +3,9 @@
 ## 当前版本
 
 - Current version: `v0.6.1`
-- Version file: [VERSION](/Volumes/AlfredLi-1T/GPT_CodeX/token-efficient-task-router/VERSION)
-- Change history: [CHANGELOG.md](/Volumes/AlfredLi-1T/GPT_CodeX/token-efficient-task-router/CHANGELOG.md)
 - connect us: afanmusic@163.com
+- 如果有迭代的需求，可以发邮件与我沟通，欢迎共同研究共同开发。
+- 本skill完全开源，不收取任何费用，放心使用。
 
 ## Skill 简介
 
