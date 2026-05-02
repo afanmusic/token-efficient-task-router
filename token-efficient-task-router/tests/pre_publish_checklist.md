@@ -2,14 +2,19 @@
 
 ```text
 [ ] SKILL.md 存在
+[ ] .gitignore 存在
+[ ] LICENSE 存在
 [ ] VERSION 存在
 [ ] CHANGELOG.md 存在
+[ ] GUIDE.md 存在
 [ ] YAML frontmatter 合法
 [ ] name 使用 kebab-case
 [ ] description 清楚说明用途
 [ ] 当前版本号符合 semver
 [ ] CHANGELOG 已记录本次版本变更
 [ ] README.md 存在
+[ ] README 面向外部读者
+[ ] GUIDE 面向外部读者
 [ ] references 文件完整
 [ ] templates 文件完整
 [ ] examples 文件完整

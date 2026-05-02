@@ -8,6 +8,69 @@ The format is intentionally lightweight:
 - `MINOR` for new capabilities or meaningful rule expansions
 - `PATCH` for documentation, examples, tests, or small non-breaking fixes
 
+## v0.6.5 - 2026-05-02
+
+### Changed
+
+- README is now Chinese-first with English support, better aligned with Chinese-speaking public readers
+- public-facing wording now fits GitHub and platform listings without changing skill behavior
+- release artifacts now target `v0.6.5`
+
+### Notes
+
+- this patch is documentation-only and does not change routing logic or safety behavior
+
+## v0.6.4 - 2026-04-29
+
+### Added
+
+- public repository `LICENSE`
+- public repository `.gitignore`
+
+### Changed
+
+- README front section is now better suited for a GitHub repository homepage
+- validation and publish checklist now cover public repository essentials
+- release artifacts now target `v0.6.4`
+
+### Notes
+
+- this patch prepares the skill for cleaner open-source style repository publishing
+
+## v0.6.3 - 2026-04-29
+
+### Added
+
+- public-facing `GUIDE.md` for external readers on GitHub, SkillHub, and ClawHub
+- package-external maintainer playbook for local iteration and release handling
+
+### Changed
+
+- README has been rewritten as a release-facing overview instead of a maintainer-facing working note
+- internal maintenance guidance is no longer intended to live inside the published skill package
+- release artifacts now target `v0.6.3`
+
+### Notes
+
+- this patch separates public documentation from private maintenance workflow
+- packaged users should only see release-facing material
+
+## v0.6.2 - 2026-04-29
+
+### Added
+
+- Codex local-install guidance in the README for placing the skill under `~/.codex/skills`
+
+### Changed
+
+- README version references now point to `v0.6.2`
+- release notes now record the local-install and finalization pass as a traceable patch
+
+### Notes
+
+- this patch closes the remaining packaging-to-installation gap for local Codex usage
+- recommended release artifacts now use `v0.6.2`
+
 ## v0.6.1 - 2026-04-29
 
 ### Added

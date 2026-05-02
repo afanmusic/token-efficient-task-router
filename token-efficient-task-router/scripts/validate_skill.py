@@ -18,8 +18,11 @@ REQUIRED_DIRS = [
 ]
 
 REQUIRED_FILES = [
+    ".gitignore",
     "SKILL.md",
+    "LICENSE",
     "README.md",
+    "GUIDE.md",
     "VERSION",
     "CHANGELOG.md",
     "references/chat_confirmation_affordances.md",
@@ -136,6 +139,8 @@ DANGEROUS_COMMAND_PATTERNS = {
 }
 
 REQUIRED_TEXT_SNIPPETS = {
+    "guide_overview": ("GUIDE.md", "## What This Skill Does"),
+    "license_text": ("LICENSE", "MIT License"),
     "chat_confirmation": ("references/chat_confirmation_affordances.md", "button-ready confirmation block"),
     "codebuddy": ("references/codebuddy_adaptation.md", "CodeBuddy scope gate"),
     "focus_activation": ("references/focus_activation_rules.md", "smallest useful focus bundle"),
@@ -157,7 +162,7 @@ REQUIRED_TEXT_SNIPPETS = {
     "focus_template": ("templates/focus_selection_template.md", "Focus Selection"),
     "need_calibration_template": ("templates/need_calibration_template.md", "真实需求校准"),
     "ima_lite_template": ("templates/ima_copilot_lite_response_template.md", "iMA 理解锁定句"),
-    "readme_version": ("README.md", "## 当前版本"),
+    "readme_version": ("README.md", "## Current Version"),
 }
 
 SEMVER_RE = re.compile(r"^\d+\.\d+\.\d+$")
