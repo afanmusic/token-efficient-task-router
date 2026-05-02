@@ -1,118 +1,135 @@
+<div align="center">
+
+**中文** · [![English](https://img.shields.io/badge/English-GUIDE.en.md-111827?style=flat-square)](./GUIDE.en.md)
+
 # token-efficient-task-router Guide
 
-## What This Skill Does
+#### 对外使用说明（中文）
 
-`token-efficient-task-router` is a control skill that helps an agent decide how to work before it starts spending tokens or editing files.
+</div>
 
-It is designed to answer questions such as:
+## 这个 Skill 是做什么的
 
-- Is this request clear enough to execute?
-- Should the agent diagnose, plan, or act?
-- Is the task low-risk or does it need confirmation?
-- Does the user need a full result, or just the next useful step?
+`token-efficient-task-router` 是一个控制型 Skill，用来帮助智能体在真正开始消耗 token、读取大量上下文、修改文件或进入高风险执行之前，先判断应该怎么工作。
 
-## Why It Exists
+它主要回答这几类问题：
 
-Many agent failures come from the same pattern: acting too broadly before the real task has been scoped.
+- 这个任务现在是否足够明确，可以直接执行？
+- 当前更适合诊断、规划、直接处理，还是建议专家介入？
+- 这个任务风险高不高，是否需要确认？
+- 用户真正需要的是完整结果，还是只要下一步、一个样本或一个分阶段方案？
 
-This skill reduces that problem by routing the request through four decision lenses:
+## 为什么需要它
 
-- clarity
-- complexity
-- risk
-- expected token cost
+很多智能体的低效，不是能力不够，而是动作顺序错了：
 
-## The Four Modes
+- 还没确认真实需求，就先读很多资料
+- 还没确认范围，就先写很长内容
+- 还没确认文件边界，就先改文件
+- 还没证明值得一次做完，就先全量展开
+
+这个 Skill 的作用，就是在这些高消耗动作发生前，先插入一个判断层。
+
+## 四种模式
 
 ### Ask Mode
 
-Use when the user wants explanation, diagnosis, feasibility judgment, risk analysis, or next-step advice.
+适合解释、诊断、可行性判断、风险分析和下一步建议。
 
 ### Plan Mode
 
-Use when the task is multi-step, file-sensitive, batch-oriented, or expensive enough that scope should be confirmed before execution.
+适合多步骤任务、文件敏感任务、批量任务和高成本任务。先确认范围，再决定怎么执行。
 
 ### Craft Mode
 
-Use when the task is clear, low-risk, and can be completed in one safe pass.
+适合明确、低风险、一次可以安全完成的小任务。
 
 ### Expert Mode
 
-Use when repeated attempts are failing, the task needs deeper specialization, or further trial-and-error would be a poor trade.
+适合连续修复失败、需要更高专业判断、或者继续试错已经不划算的情况。
 
-## Interactive Routing
+## 交互式任务路由
 
-The skill can ask the user to confirm:
+当任务存在下面这些特征时，这个 Skill 不会直接替用户决定，而是先确认：
 
-- task complexity
-- preferred working mode
-- output depth
+- 任务复杂度
+- 用户偏好的处理模式
+- 输出需要多详细
 
-This is especially useful when the request is ambiguous, file-related, batch-oriented, or likely to consume more tokens than necessary.
+这特别适合：
 
-## Progressive Delivery
+- 模糊任务
+- 文件相关任务
+- 批量任务
+- 可能消耗较多 token 的任务
 
-The skill is built to prefer the smallest useful output first.
+## 渐进式推进
 
-Typical progression:
+这个 Skill 不默认把“全部做完”当作第一选择。
 
-1. decision or diagnosis
-2. sample or pilot output
-3. staged execution
-4. full batch delivery
+默认更推荐：
 
-This makes the skill a better fit for real-world work where the right scope is often discovered during execution.
+1. 先判断
+2. 先给样本
+3. 再分阶段推进
+4. 最后才考虑全量完成
 
-## File Safety
+这会让它更适合真实工作环境，因为很多任务的正确范围，本来就是在执行过程中逐步确认出来的。
 
-The skill is intentionally conservative around:
+## 文件安全
 
-- core file overwrites
-- deletion
-- batch rename or move operations
-- deployment-impacting changes
-- database-impacting changes
+这个 Skill 对以下动作会更保守：
 
-For these categories, confirmation gates are part of the expected behavior.
+- 覆盖核心文件
+- 删除文件
+- 批量重命名或移动
+- 影响部署的改动
+- 影响数据库的改动
 
-## Platform Behavior
+在这些场景里，确认闸门是设计的一部分，而不是额外负担。
+
+## 平台行为
 
 ### WorkBuddy
 
-Prefers scope-first file handling, read-only analysis, and sample-batch execution before broad folder changes.
+更适合先做只读分析、范围确认和样本批次，再决定是否继续做目录级处理。
 
 ### iMA Copilot
 
-Prefers narrow retrieval, short evidence-based outputs, and material grouping before long-form expansion.
+更适合先缩小资料范围、给出短结论或分组归纳，而不是一开始就生成长篇综述。
 
 ### CodeBuddy
 
-Prefers limited code reading, minimal diffs, and focused validation instead of broad scan-and-rewrite behavior.
+更适合限制读代码范围、改动范围和测试范围，避免默认扫全仓和大面积重构。
 
-## Example Prompts
+## 示例提示词
 
 ```text
-Please route this task into Ask, Plan, Craft, or Expert mode.
+请判断这个任务应该进入 Ask、Plan、Craft 还是 Expert 模式。
 ```
 
 ```text
-Use Plan Mode first. Do not modify files yet.
+请先用 Plan Mode 规划，不要直接修改文件。
 ```
 
 ```text
-This is a small low-risk task. Use Craft Mode directly.
+这是一个明确的小任务，请直接用 Craft Mode 给结果。
 ```
 
 ```text
-Diagnose this issue first and avoid changing code until the cause is clearer.
+这个问题先诊断原因，不要马上改代码。
 ```
 
 ```text
-Use the most token-efficient approach and only give me the next useful step.
+请用最省 token 的方式回答，只给我下一步。
 ```
 
-## What This Skill Does Not Try To Do
+## 这个 Skill 不打算做什么
 
-It does not try to replace domain skills. It does not try to make every task slower. It does not try to produce maximum detail by default.
+它不打算替代业务 Skill，也不打算让所有任务都变慢，更不打算默认产出最大篇幅的内容。
 
-Its purpose is narrower: make agent execution safer, cheaper, and more aligned with the real need behind the request.
+它的目标更单纯：让智能体在真实工作里更安全、更省 token、更贴近用户的真实诉求。
+
+---
+
+更多英文说明请查看 [GUIDE.en.md](./GUIDE.en.md)。

@@ -8,6 +8,38 @@ The format is intentionally lightweight:
 - `MINOR` for new capabilities or meaningful rule expansions
 - `PATCH` for documentation, examples, tests, or small non-breaking fixes
 
+## v0.6.7 - 2026-05-02
+
+### Added
+
+- split public guide into a Chinese `GUIDE.md` and an English `GUIDE.en.md`
+- bidirectional language-switch links at the top of both guide files
+
+### Changed
+
+- README public document links now point to separate Chinese and English guide pages
+- release artifacts now target `v0.6.7`
+
+### Notes
+
+- this patch improves public reading experience only and does not change skill behavior
+
+## v0.6.6 - 2026-05-02
+
+### Added
+
+- split public repository homepage into a Chinese `README.md` and an English `README.en.md`
+- bidirectional language-switch links at the top of both README files
+
+### Changed
+
+- README presentation now follows a clearer bilingual-repository pattern instead of mixed-language paragraphs
+- release artifacts now target `v0.6.6`
+
+### Notes
+
+- this patch improves public reading experience only and does not change skill behavior
+
 ## v0.6.5 - 2026-05-02
 
 ### Changed

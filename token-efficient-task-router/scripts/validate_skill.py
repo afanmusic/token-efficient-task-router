@@ -22,7 +22,9 @@ REQUIRED_FILES = [
     "SKILL.md",
     "LICENSE",
     "README.md",
+    "README.en.md",
     "GUIDE.md",
+    "GUIDE.en.md",
     "VERSION",
     "CHANGELOG.md",
     "references/chat_confirmation_affordances.md",
@@ -139,8 +141,13 @@ DANGEROUS_COMMAND_PATTERNS = {
 }
 
 REQUIRED_TEXT_SNIPPETS = {
-    "guide_overview": ("GUIDE.md", "## What This Skill Does"),
+    "guide_overview": ("GUIDE.md", "## 这个 Skill 是做什么的"),
+    "guide_language_switch_zh": ("GUIDE.md", "GUIDE.en.md"),
+    "guide_language_switch_en": ("GUIDE.en.md", "GUIDE.md"),
+    "guide_en_overview": ("GUIDE.en.md", "## What This Skill Does"),
     "license_text": ("LICENSE", "MIT License"),
+    "readme_language_switch_zh": ("README.md", "README.en.md"),
+    "readme_language_switch_en": ("README.en.md", "README.md"),
     "chat_confirmation": ("references/chat_confirmation_affordances.md", "button-ready confirmation block"),
     "codebuddy": ("references/codebuddy_adaptation.md", "CodeBuddy scope gate"),
     "focus_activation": ("references/focus_activation_rules.md", "smallest useful focus bundle"),
@@ -162,7 +169,8 @@ REQUIRED_TEXT_SNIPPETS = {
     "focus_template": ("templates/focus_selection_template.md", "Focus Selection"),
     "need_calibration_template": ("templates/need_calibration_template.md", "真实需求校准"),
     "ima_lite_template": ("templates/ima_copilot_lite_response_template.md", "iMA 理解锁定句"),
-    "readme_version": ("README.md", "## Current Version"),
+    "readme_version": ("README.md", "当前版本"),
+    "readme_en_version": ("README.en.md", "## Repository Structure"),
 }
 
 SEMVER_RE = re.compile(r"^\d+\.\d+\.\d+$")
@@ -287,7 +295,10 @@ def validate_skill_root(root: Path) -> tuple[list[str], list[str]]:
     readme_file = root / "README.md"
     if version and readme_file.is_file():
         readme_content = readme_file.read_text(encoding="utf-8", errors="ignore")
-        if f"Current version: `v{version}`" not in readme_content:
+        if (
+            f"Current version: `v{version}`" not in readme_content
+            and f"当前版本：`v{version}`" not in readme_content
+        ):
             errors.append(f"README.md does not declare the current version as v{version}.")
 
     for text_file in iter_text_files(root):
