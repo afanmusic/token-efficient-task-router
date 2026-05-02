@@ -8,6 +8,18 @@ The format is intentionally lightweight:
 - `MINOR` for new capabilities or meaningful rule expansions
 - `PATCH` for documentation, examples, tests, or small non-breaking fixes
 
+## v0.6.8 - 2026-05-02
+
+### Changed
+
+- expanded Chinese and English README installation sections with WorkBuddy, CodeBuddy, and QClaw guidance
+- public install guidance now distinguishes UI import, user-level directory install, project-level install, and OpenClaw-compatible fallback paths
+- release artifacts now target `v0.6.8`
+
+### Notes
+
+- this patch improves platform installation guidance only and does not change skill behavior
+
 ## v0.6.7 - 2026-05-02
 
 ### Added

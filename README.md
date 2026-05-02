@@ -6,7 +6,7 @@
 
 #### 一个面向智能体的低消耗任务路由与执行控制 Skill
 
-[![Version](https://img.shields.io/badge/version-v0.6.7-2563EB?style=for-the-badge)](./CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-v0.6.8-2563EB?style=for-the-badge)](./CHANGELOG.md)
 [![License](https://img.shields.io/badge/License-MIT-0F766E?style=for-the-badge)](./LICENSE)
 [![Modes](https://img.shields.io/badge/Modes-Ask%20%7C%20Plan%20%7C%20Craft%20%7C%20Expert-7C3AED?style=for-the-badge)](./SKILL.md)
 [![Token](https://img.shields.io/badge/Token-Efficient-F59E0B?style=for-the-badge)](./GUIDE.md)
@@ -165,8 +165,8 @@
 
 当前可发布产物：
 
-- `token-efficient-task-router-v0.6.7.zip`
-- `token-efficient-task-router-v0.6.7.skill`
+- `token-efficient-task-router-v0.6.8.zip`
+- `token-efficient-task-router-v0.6.8.skill`
 
 本地测试仍保留最新别名：
 
@@ -182,6 +182,77 @@
 ```
 
 安装后建议重启一次应用，使新 Skill 稳定生效。
+
+### WorkBuddy 安装
+
+WorkBuddy 官方文档提供的是“技能市场导入本地技能包”的方式。推荐步骤：
+
+1. 在 WorkBuddy 中打开“技能市场”
+2. 点击“添加技能”或“上传技能”
+3. 选择本地技能包文件，推荐使用 `token-efficient-task-router-v0.6.8.zip`
+4. 导入完成后，在已安装技能列表中确认该 Skill 已启用
+
+更稳妥的使用建议：
+
+- 只在当前任务需要时启用这个 Skill
+- 如果你准备上传到 SkillHub，建议使用专门给 SkillHub 的精简 zip 包
+
+### CodeBuddy 安装
+
+CodeBuddy 官方文档支持两类目录：
+
+1. 用户级 Skills：`~/.codebuddy/skills/`
+2. 项目级 Skills：`.codebuddy/skills/`
+
+推荐两种安装方式：
+
+#### 方式 1：用户级安装
+
+把整个 `token-efficient-task-router/` 文件夹复制到：
+
+```text
+~/.codebuddy/skills/token-efficient-task-router
+```
+
+#### 方式 2：项目级安装
+
+如果你希望只在某个项目里使用，把整个文件夹复制到：
+
+```text
+<project-root>/.codebuddy/skills/token-efficient-task-router
+```
+
+安装后可以在 CodeBuddy 里使用 `/skills` 查看是否已加载。
+
+### QClaw 安装
+
+QClaw 的公开资料说明它接入了 ClawHub 和 GitHub Skills 生态，并支持从 ClawHub 一键安装技能包。
+
+因此更推荐的安装方式是：
+
+#### 方式 1：通过 ClawHub / 技能市场安装
+
+如果你的 QClaw 版本带有 Skills 市场或 ClawHub 入口，优先直接通过市场安装。
+
+#### 方式 2：通过 GitHub 技能仓库导入
+
+如果你的 QClaw 版本支持从 GitHub 技能生态读取技能，可以使用当前 Skill 仓库或发布包进行导入。
+
+#### 方式 3：按 OpenClaw 兼容目录手动安装
+
+由于 QClaw 基于 OpenClaw 生态构建，如果你的环境支持手动技能目录，也可以按 OpenClaw 兼容方式放入：
+
+```text
+~/.openclaw/skills/token-efficient-task-router
+```
+
+或当前工作区：
+
+```text
+<workspace>/skills/token-efficient-task-router
+```
+
+如果你走的是手动目录方式，建议重启 QClaw 或开启新会话，让技能重新加载。
 
 ## 仓库结构
 
@@ -214,7 +285,7 @@ token-efficient-task-router/
 
 ## 版本与授权
 
-- 当前版本：`v0.6.7`
+- 当前版本：`v0.6.8`
 - 许可证：`MIT`
 
 ---

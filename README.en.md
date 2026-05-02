@@ -6,7 +6,7 @@
 
 #### A token-efficient task routing and execution control skill for AI agents
 
-[![Version](https://img.shields.io/badge/version-v0.6.7-2563EB?style=for-the-badge)](./CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-v0.6.8-2563EB?style=for-the-badge)](./CHANGELOG.md)
 [![License](https://img.shields.io/badge/License-MIT-0F766E?style=for-the-badge)](./LICENSE)
 [![Modes](https://img.shields.io/badge/Modes-Ask%20%7C%20Plan%20%7C%20Craft%20%7C%20Expert-7C3AED?style=for-the-badge)](./SKILL.md)
 [![Token](https://img.shields.io/badge/Token-Efficient-F59E0B?style=for-the-badge)](./GUIDE.en.md)
@@ -165,8 +165,8 @@ Place the `token-efficient-task-router/` directory into a supported skill direct
 
 Current release artifacts:
 
-- `token-efficient-task-router-v0.6.7.zip`
-- `token-efficient-task-router-v0.6.7.skill`
+- `token-efficient-task-router-v0.6.8.zip`
+- `token-efficient-task-router-v0.6.8.skill`
 
 Latest local aliases:
 
@@ -182,6 +182,79 @@ For local Codex use, place the folder under:
 ```
 
 Restarting the app after installation is recommended.
+
+### WorkBuddy install
+
+According to the official WorkBuddy documentation, the standard flow is to import a local skill package from the Skills Market UI.
+
+Recommended steps:
+
+1. Open the Skills Market in WorkBuddy
+2. Click `Add Skill` or `Upload Skill`
+3. Choose the local package file, preferably `token-efficient-task-router-v0.6.8.zip`
+4. After import, confirm that the skill is enabled in the installed skills list
+
+Practical recommendation:
+
+- enable this skill only when it is relevant to the current task
+- if you are publishing to SkillHub, prefer a dedicated SkillHub-ready zip package
+
+### CodeBuddy install
+
+The official CodeBuddy skills documentation supports two locations:
+
+1. User-level skills: `~/.codebuddy/skills/`
+2. Project-level skills: `.codebuddy/skills/`
+
+Recommended options:
+
+#### Option 1: User-level install
+
+Copy the entire `token-efficient-task-router/` folder to:
+
+```text
+~/.codebuddy/skills/token-efficient-task-router
+```
+
+#### Option 2: Project-level install
+
+If you only want it inside one project, copy it to:
+
+```text
+<project-root>/.codebuddy/skills/token-efficient-task-router
+```
+
+After installation, you can use `/skills` in CodeBuddy to verify that the skill is loaded.
+
+### QClaw install
+
+Public QClaw materials state that QClaw connects to the ClawHub and GitHub skills ecosystem, and that skills can be installed from ClawHub.
+
+That makes the safest installation guidance:
+
+#### Option 1: Install through ClawHub or the skills marketplace
+
+If your QClaw build exposes a Skills Market or ClawHub entry, prefer installing the skill there.
+
+#### Option 2: Import from a GitHub skill source
+
+If your QClaw build supports GitHub-based skill ingestion, use this repository or a release package as the import source.
+
+#### Option 3: Manual OpenClaw-compatible install
+
+Because QClaw is built on the OpenClaw ecosystem, environments that expose manual skill directories can usually use an OpenClaw-compatible folder install:
+
+```text
+~/.openclaw/skills/token-efficient-task-router
+```
+
+or the active workspace:
+
+```text
+<workspace>/skills/token-efficient-task-router
+```
+
+If you use the manual directory route, restarting QClaw or opening a new session is recommended so the skill reloads cleanly.
 
 ## Repository Structure
 
@@ -214,7 +287,7 @@ token-efficient-task-router/
 
 ## Version And License
 
-- Current version: `v0.6.7`
+- Current version: `v0.6.8`
 - License: `MIT`
 
 ---
